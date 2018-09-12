@@ -1,0 +1,12 @@
+.header-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 7em;
+}
+
+.header-holder h1 {
+  margin: 0;
+  color: white;
+}

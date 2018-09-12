@@ -1,0 +1,7 @@
+.todo-list {
+  margin-top: 1em;
+  position: relative;
+  transform: translate(-50%);
+  left: 50%;
+  width: 30em;
+}
