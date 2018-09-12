@@ -1,22 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-
-import { TodoService } from '../todo.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: []
 })
 export class TodoListComponent implements OnInit {
-  todos: Object;
+  todosValue : [];
 
-  constructor(private todoService: TodoService) { }
+  @Output()
+  todosChange = new EventEmitter<[]>();
 
-  ngOnInit() {
-    this.getTodos();
+  @Input()
+  get todos() {
+    return this.todosValue;
   }
 
-  getTodos(): void {
-    this.todoService.getTodos().subscribe((todos) => this.todos = todos);
+  set todos(val) {
+    this.todosValue = val;
+    this.todosChange.emit(this.todosValue);
   }
+
+  ngOnInit() { }
 }

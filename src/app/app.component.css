@@ -10,3 +10,8 @@
   margin: 0;
   color: white;
 }
+
+.content-holder {
+  margin-top: 1em;
+  width: 30em;
+}

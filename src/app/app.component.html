@@ -1,6 +1,9 @@
 <div class="header-holder">
   <h1>
-    {{ title }}
+      TODO List
   </h1>
 </div>
-<app-todo-list></app-todo-list>
+<div class="container content-holder">
+  <app-todo-list [(todos)]="todos"></app-todo-list>
+  <app-title-input [(todos)]="todos"></app-title-input>
+</div>
