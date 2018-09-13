@@ -16,7 +16,9 @@ export class AppComponent {
     this.getTodos();
   }
 
-  getTodos(): void {
-    this.todoService.getTodos().subscribe((todos) => this.todos = todos);
+  getTodos() {
+    this.todoService.getTodos().subscribe((todos) =>
+      this.todos = todos
+    );
   }
  }
