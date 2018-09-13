@@ -3,8 +3,8 @@
     {{ todo.title }}
   </div>
   <ng-container>
-    <button *ngIf="!todo.isComplete" class="btn btn-success" (click)="completeTodo(todo)"> Complete </button>
-    <button *ngIf="todo.isComplete" class="btn btn-primary" (click)="completeTodo(todo)"> Revert </button>
-    <button class="btn btn-danger delete-button" (click)="deleteTodo(todo)"> Delete </button>
+    <button *ngIf="!todo.isComplete" class="btn btn-success" (click)="completeTodo()"> Complete </button>
+    <button *ngIf="todo.isComplete" class="btn btn-primary" (click)="completeTodo()"> Revert </button>
+    <button class="btn btn-danger delete-button" (click)="deleteTodo()"> Delete </button>
   </ng-container>
 </li>

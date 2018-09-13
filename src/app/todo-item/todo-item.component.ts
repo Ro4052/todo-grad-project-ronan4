@@ -22,16 +22,18 @@ export class TodoItemComponent implements OnInit {
     return todo.isComplete ? "completed-todo" : "";
   }
 
-  completeTodo(todo) {
-    todo.isComplete = !todo.isComplete;
-    this.todoService.completeTodo(todo).subscribe(() => {
-      this.todos.find((otherTodo) => otherTodo === todo).isComplete = todo.isComplete;
+  completeTodo() {
+    this.todo.isComplete = !this.todo.isComplete;
+    this.todoService.completeTodo(this.todo).subscribe(() => {
+      this.todos.find((otherTodo) => 
+        otherTodo === this.todo
+      ).isComplete = this.todo.isComplete;
     });
   }
 
-  deleteTodo(todo) {
-    this.todoService.deleteTodo(todo.id).subscribe(() =>
-      this.todos.splice(this.todos.indexOf(todo), 1)
+  deleteTodo() {
+    this.todoService.deleteTodo(this.todo.id).subscribe(() =>
+      this.todos.splice(this.todos.indexOf(this.todo), 1)
     );
   }
 }
