@@ -10,6 +10,7 @@ import { TodoService } from './todo.service';
 export class AppComponent {
   todos : any = [];
   filterState = 'all';
+  title = '';
 
   constructor(private todoService: TodoService) { }
 
@@ -21,5 +22,13 @@ export class AppComponent {
     this.todoService.getTodos().subscribe((todos) =>
       this.todos = todos
     );
+  }
+
+  titleSubmit(title) {
+    const todo = { id: '', title: title, isComplete: false };
+    this.todoService.createTodo(todo).subscribe((id) => {
+      todo.id = id;
+      this.todos.push(todo);
+    });
   }
  }

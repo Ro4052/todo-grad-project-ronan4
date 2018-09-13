@@ -1,7 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-
-import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-title-input',
@@ -12,16 +10,15 @@ export class TitleInputComponent implements OnInit {
   formdata;
 
   @Input()
-  todos;
+  title
 
-  constructor(private todoService: TodoService) { }
+  @Output()
+  titleSubmit : any = new EventEmitter();
+
+  constructor() { }
 
   onSubmit(formControls) {
-    const todo = { id: '', title: formControls.newTitle.value, isComplete: false };
-    this.todoService.createTodo(todo).subscribe((id) => {
-      todo.id = id;
-      this.todos.push(todo);
-    });
+    this.titleSubmit.emit(formControls.newTitle.value);
     this.resetInput();
   };
 
