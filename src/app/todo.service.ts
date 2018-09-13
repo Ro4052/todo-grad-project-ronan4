@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-}
+const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +15,11 @@ export class TodoService {
   }
 
   createTodo(todo) {
-    return this.http.post<string>('/api/todo', todo, httpOptions);
+    return this.http.post<string>('/api/todo', todo, { headers: headers });
+  }
+
+  completeTodo(todo) {
+    return this.http.put(`/api/todo/${todo.id}`, todo, { headers: headers, responseType: 'text' });
   }
 
   deleteTodo(id) {

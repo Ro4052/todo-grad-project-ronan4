@@ -1,3 +1,7 @@
-.delete-button {
+.button-holder {
   float: right;
+}
+
+.delete-button {
+  margin-left: 0.3em;
 }

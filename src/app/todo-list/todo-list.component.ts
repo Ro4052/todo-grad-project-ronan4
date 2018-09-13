@@ -27,6 +27,13 @@ export class TodoListComponent implements OnInit {
   
   ngOnInit() { }
 
+  completeTodo(todo) {
+    todo.isComplete = !todo.isComplete;
+    this.todoService.completeTodo(todo).subscribe(() => {
+      this.todos.find((otherTodo) => otherTodo === todo).isComplete = todo.isComplete;
+    });
+  }
+
   deleteTodo(todo) {
     this.todoService.deleteTodo(todo.id).subscribe(() =>
       this.todos.splice(this.todos.indexOf(todo), 1)
