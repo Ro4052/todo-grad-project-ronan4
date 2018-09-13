@@ -1,13 +1,15 @@
 <ul class="list-group todo-list">
-  <p *ngIf="todos.length===0"> No todos, create one below... </p>
+  <label *ngIf="todos.length===0"> No todos, create one below... </label>
   <ng-container *ngFor="let todo of todos">
-    <li *ngIf="showTodo(todo)" class="list-group-item">
-      <span [class]="getTitleStyle(todo)"> {{ todo.title }} </span>
-      <div class="button-holder">
+    <li *ngIf="showTodo(todo)" class="list-group-item todo-item">
+      <div [class]="getTitleStyle(todo)">
+        {{ todo.title }}
+      </div>
+      <ng-container>
         <button *ngIf="!todo.isComplete" class="btn btn-success" (click)="completeTodo(todo)"> Complete </button>
         <button *ngIf="todo.isComplete" class="btn btn-primary" (click)="completeTodo(todo)"> Revert </button>
         <button class="btn btn-danger delete-button" (click)="deleteTodo(todo)"> Delete </button>
-      </div>
+      </ng-container>
     </li>
   </ng-container>
 </ul>
