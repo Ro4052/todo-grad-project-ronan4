@@ -25,4 +25,8 @@ export class TodoService {
   deleteTodo(id) {
     return this.http.delete(`/api/todo/${id}`, { responseType: 'text' });
   }
+
+  deleteCompleted() {
+    return this.http.delete('/api/todo', { responseType: 'text' });
+  }
 }

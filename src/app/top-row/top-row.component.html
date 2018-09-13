@@ -1,1 +1,1 @@
-<button class="btn btn-danger del-comp" [disabled]="numCompleted===0"> Delete Completed </button>
+<button class="btn btn-danger del-comp" [disabled]="numCompleted()===0" (click)="deleteCompleted()"> Delete Completed </button>

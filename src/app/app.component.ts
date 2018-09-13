@@ -16,10 +16,6 @@ export class AppComponent {
     this.getTodos();
   }
 
-  numCompleted() {
-    return [...this.todos].filter((todo) => todo.isComplete).length;
-  }
-
   getTodos() {
     this.todoService.getTodos().subscribe((todos) =>
       this.todos = todos

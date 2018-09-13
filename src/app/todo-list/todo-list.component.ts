@@ -18,12 +18,12 @@ export class TodoListComponent implements OnInit {
     return this.todosValue;
   }
   
-  constructor(private todoService: TodoService) { }
-
   set todos(val) {
     this.todosValue = val;
     this.todosChange.emit(this.todosValue);
   }
+
+  constructor(private todoService: TodoService) { }
   
   ngOnInit() { }
 
