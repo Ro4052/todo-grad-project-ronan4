@@ -1,4 +1,5 @@
 <ul class="list-group todo-list">
+  <p *ngIf="todos.length===0"> No todos, create one below... </p>
   <ng-container *ngFor="let todo of todos">
     <li *ngIf="showTodo(todo)" class="list-group-item">
       <span [class]="getTitleStyle(todo)"> {{ todo.title }} </span>

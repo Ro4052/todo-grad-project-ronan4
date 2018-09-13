@@ -4,6 +4,13 @@
   width: 100%;
 }
 
+.todo-list p {
+  padding-top: 0.5em;
+  margin: 0;
+  text-align: center;
+  height: 100%;
+}
+
 .button-holder {
   float: right;
 }
