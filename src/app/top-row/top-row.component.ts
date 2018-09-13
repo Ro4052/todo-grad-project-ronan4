@@ -11,5 +11,4 @@ export class TopRowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
 }
