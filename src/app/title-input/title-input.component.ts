@@ -6,7 +6,7 @@ import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-title-input',
   templateUrl: './title-input.component.html',
-  styleUrls: ['./title-input.component.css']
+  styleUrls: []
 })
 export class TitleInputComponent implements OnInit {
   formdata;

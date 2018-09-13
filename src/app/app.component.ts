@@ -8,12 +8,16 @@ import { TodoService } from './todo.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  todos : any;
+  todos : any = [];
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
     this.getTodos();
+  }
+
+  numCompleted() {
+    return [...this.todos].filter((todo) => todo.isComplete).length;
   }
 
   getTodos() {

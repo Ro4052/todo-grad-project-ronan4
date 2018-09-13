@@ -4,6 +4,7 @@
   </h1>
 </div>
 <div class="container content-holder">
+  <app-top-row [numCompleted]="numCompleted()"></app-top-row>
   <app-todo-list [(todos)]="todos"></app-todo-list>
   <app-title-input [(todos)]="todos"></app-title-input>
 </div>
