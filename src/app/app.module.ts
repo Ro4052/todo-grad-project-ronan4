@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TitleInputComponent } from './title-input/title-input.component';
 import { TopRowComponent } from './top-row/top-row.component';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoListComponent,
     TitleInputComponent,
-    TopRowComponent
+    TopRowComponent,
+    TodoItemComponent
   ],
   imports: [
     BrowserModule,

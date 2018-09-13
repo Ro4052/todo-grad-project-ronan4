@@ -1,0 +1,10 @@
+<li class="list-group-item todo-item">
+  <div [class]="getTitleStyle(todo)">
+    {{ todo.title }}
+  </div>
+  <ng-container>
+    <button *ngIf="!todo.isComplete" class="btn btn-success" (click)="completeTodo(todo)"> Complete </button>
+    <button *ngIf="todo.isComplete" class="btn btn-primary" (click)="completeTodo(todo)"> Revert </button>
+    <button class="btn btn-danger delete-button" (click)="deleteTodo(todo)"> Delete </button>
+  </ng-container>
+</li>

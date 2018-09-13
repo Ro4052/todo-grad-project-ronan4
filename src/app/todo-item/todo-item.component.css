@@ -1,0 +1,17 @@
+.completed-todo {
+  opacity: 0.5;
+}
+
+.delete-button {
+  margin-left: 0.3em;
+}
+
+.todo-item {
+  display: flex;
+}
+
+.todo-item div {
+  flex-grow: 5;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
