@@ -27,6 +27,10 @@ export class TodoListComponent implements OnInit {
   
   ngOnInit() { }
 
+  getTitleStyle(todo) {
+    return todo.isComplete ? "completed-todo" : "";
+  }
+
   completeTodo(todo) {
     todo.isComplete = !todo.isComplete;
     this.todoService.completeTodo(todo).subscribe(() => {

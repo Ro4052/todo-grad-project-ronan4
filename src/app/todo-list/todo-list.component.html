@@ -1,6 +1,6 @@
 <ul class="list-group todo-list">
   <li *ngFor="let todo of todos" class="list-group-item">
-    <span> {{ todo.title }} </span>
+    <span [class]="getTitleStyle(todo)"> {{ todo.title }} </span>
     <div class="button-holder">
       <button *ngIf="!todo.isComplete" class="btn btn-success" (click)="completeTodo(todo)"> Complete </button>
       <button *ngIf="todo.isComplete" class="btn btn-primary" (click)="completeTodo(todo)"> Revert </button>
