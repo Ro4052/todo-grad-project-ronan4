@@ -6,5 +6,5 @@
 <div class="container content-holder">
   <app-top-row [(todos)]="todos" [(filterState)]="filterState"></app-top-row>
   <app-todo-list [(todos)]="todos" [filterState]="filterState"></app-todo-list>
-  <app-title-input [title]="title" (titleSubmit)="titleSubmit($event)"></app-title-input>
+  <app-title-input [title]="title" (titleSubmit)="titleSubmit($event)" actionText="Create"></app-title-input>
 </div>

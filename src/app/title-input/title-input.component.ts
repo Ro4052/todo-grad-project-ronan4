@@ -12,6 +12,9 @@ export class TitleInputComponent implements OnInit {
   @Input()
   title
 
+  @Input()
+  actionText;
+
   @Output()
   titleSubmit : any = new EventEmitter();
 
