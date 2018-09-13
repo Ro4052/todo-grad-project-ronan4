@@ -3,7 +3,7 @@ var db = require('./server/db');
 var path = require('path');
 
 var port = process.env.PORT || 8080;
-var dirPath = path.join(__dirname, 'dist');
+var dirPath = path.join(__dirname, '/dist/todo-grad-project-ronan4');
 
 server(port, dirPath, db);
 console.log('Server running on port ' + port);
