@@ -8,7 +8,7 @@ import { TodoService } from './todo.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  todos : [];
+  todos : any;
 
   constructor(private todoService: TodoService) { }
 

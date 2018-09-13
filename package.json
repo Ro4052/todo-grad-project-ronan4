@@ -1,13 +1,16 @@
 {
   "name": "todo-grad-project-ronan4",
   "version": "0.0.0",
+  "main": "server.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json",
+    "start": "node server",
+    "start:local": "ng serve --proxy-config proxy.config.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "npm build"
   },
   "private": true,
   "dependencies": {
@@ -50,5 +53,8 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~2.9.2"
+  },
+  "engines": {
+    "node": "8.11.4"
   }
 }
