@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { TodoService } from '../todo.service';
 
@@ -8,24 +8,24 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-  todosValue : [any];
-
-  @Output()
-  todosChange = new EventEmitter();
+  @Input()
+  todos;
 
   @Input()
-  get todos() {
-    return this.todosValue;
-  }
-  
-  set todos(val) {
-    this.todosValue = val;
-    this.todosChange.emit(this.todosValue);
-  }
+  filterState;
 
   constructor(private todoService: TodoService) { }
   
   ngOnInit() { }
+
+  showTodo(todo) {
+    if (this.filterState === 'all' ||
+        (this.filterState === 'active' && !todo.isComplete) ||
+        (this.filterState === 'completed') && todo.isComplete) {
+      return true;
+    }
+    return false;
+  }
 
   getTitleStyle(todo) {
     return todo.isComplete ? "completed-todo" : "";

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { TodoService } from '../todo.service';
@@ -10,20 +10,9 @@ import { TodoService } from '../todo.service';
 })
 export class TitleInputComponent implements OnInit {
   formdata;
-  todosValue : [Object];
-
-  @Output()
-  todosChange = new EventEmitter<Object>();
 
   @Input()
-  get todos() {
-    return this.todosValue;
-  }
-
-  set todos(val) {
-    this.todosValue = val;
-    this.todosChange.emit(this.todosValue);
-  }
+  todos;
 
   constructor(private todoService: TodoService) { }
 

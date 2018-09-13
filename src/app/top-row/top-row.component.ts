@@ -8,10 +8,21 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./top-row.component.css']
 })
 export class TopRowComponent implements OnInit {
-  todosValue : any;
+  todosValue;
+  filterStateValue;
+
+  @Input()
+  get filterState() {
+    return this.filterStateValue;
+  }
+
+  set filterState(val) {
+    this.filterStateValue = val;
+    this.filterStateChange.emit(this.filterStateValue);
+  }
 
   @Output()
-  todosChange = new EventEmitter();
+  filterStateChange = new EventEmitter();
 
   @Input()
   get todos() {
@@ -23,12 +34,19 @@ export class TopRowComponent implements OnInit {
     this.todosChange.emit(this.todosValue);
   }
 
+  @Output()
+  todosChange = new EventEmitter();
+
   constructor(private todoService: TodoService) { }
 
   ngOnInit() { }
 
   numCompleted() {
     return [...this.todos].filter((todo) => todo.isComplete).length;
+  }
+
+  changeFilter(state) {
+    this.filterState = state;
   }
 
   deleteCompleted() {

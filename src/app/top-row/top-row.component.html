@@ -1,1 +1,6 @@
+<div class="btn-group">
+  <button class="btn" (click)="changeFilter('all')"> All </button>
+  <button class="btn" (click)="changeFilter('active')"> Active </button>
+  <button class="btn" (click)="changeFilter('completed')"> Completed </button>
+</div>
 <button class="btn btn-danger del-comp" [disabled]="numCompleted()===0" (click)="deleteCompleted()"> Delete Completed </button>

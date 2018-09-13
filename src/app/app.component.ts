@@ -9,6 +9,7 @@ import { TodoService } from './todo.service';
 })
 export class AppComponent {
   todos : any = [];
+  filterState = 'all';
 
   constructor(private todoService: TodoService) { }
 
