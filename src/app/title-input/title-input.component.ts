@@ -10,7 +10,10 @@ export class TitleInputComponent implements OnInit {
   formdata;
 
   @Input()
-  title
+  placeholder;
+
+  @Input()
+  title;
 
   @Input()
   actionText;

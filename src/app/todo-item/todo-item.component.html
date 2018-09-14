@@ -1,6 +1,6 @@
 <li [class]="'list-group-item' + (!showInput ? ' todo-item' : '')">
   <ng-container *ngIf="!showInput">
-    <div [class]="this.todo.isComplete ? 'completed-todo' : ''" (click)="openInput()">
+    <div id="todo-title" [class]="this.todo.isComplete ? 'completed-todo' : ''" (click)="openInput()">
       {{ todo.title }}
     </div>
     <ng-container>
@@ -9,5 +9,10 @@
       <button class="btn btn-danger delete-button" (click)="deleteTodo()"> Delete </button>
     </ng-container>
   </ng-container>
-  <app-title-input *ngIf="showInput" [title]="todo.title" (titleSubmit)="updateTitle($event)" actionText="Update"></app-title-input>
+  <app-title-input
+    *ngIf="showInput"
+    [title]="todo.title"
+    (titleSubmit)="updateTitle($event)"
+    placeholder=""
+    actionText="Update"></app-title-input>
 </li>

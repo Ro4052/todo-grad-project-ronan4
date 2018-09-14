@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 
 import { TodoService } from '../todo.service';
 
@@ -16,6 +16,14 @@ export class TodoItemComponent implements OnInit {
   @Input()
   todo;
 
+  @HostListener('document:click', ['$event'])
+  documentClick(event: MouseEvent) {
+    if ((event.srcElement.id !== 'title-input-Update') &&
+        (event.srcElement.id !== 'todo-title')) {
+      this.showInput = false;
+    }
+  }
+
   constructor(private todoService: TodoService) { }
 
   ngOnInit() { }
@@ -30,9 +38,9 @@ export class TodoItemComponent implements OnInit {
   }
   
   updateTitle(title) {
-    this.showInput = false;
     this.todo.title = title;
     this.updateTodo();
+    this.showInput = false;
   }
 
   updateTodo() {
