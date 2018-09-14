@@ -21,13 +21,16 @@ export class TitleInputComponent implements OnInit {
   constructor() { }
 
   onSubmit(formControls) {
-    this.titleSubmit.emit(formControls.newTitle.value);
-    this.resetInput();
+    const newTitle = formControls.newTitle.value;
+    if (newTitle.length) {
+      this.titleSubmit.emit(newTitle);
+      this.resetInput();
+    }
   };
 
   resetInput() {
     this.formdata = new FormGroup({
-      newTitle: new FormControl()
+      newTitle: new FormControl(this.title)
     });
   }
 

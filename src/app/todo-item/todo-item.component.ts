@@ -8,6 +8,8 @@ import { TodoService } from '../todo.service';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {
+  showInput = false;
+
   @Input()
   todos;
 
@@ -18,22 +20,32 @@ export class TodoItemComponent implements OnInit {
 
   ngOnInit() { }
 
-  getTitleStyle(todo) {
-    return todo.isComplete ? "completed-todo" : "";
+  openInput() {
+    this.showInput = true;
   }
-
+  
   completeTodo() {
     this.todo.isComplete = !this.todo.isComplete;
-    this.todoService.completeTodo(this.todo).subscribe(() => {
+    this.updateTodo();
+  }
+  
+  updateTitle(title) {
+    this.showInput = false;
+    this.todo.title = title;
+    this.updateTodo();
+  }
+
+  updateTodo() {
+    this.todoService.updateTodo(this.todo).subscribe(() => {
       this.todos.find((otherTodo) => 
-        otherTodo === this.todo
+      otherTodo === this.todo
       ).isComplete = this.todo.isComplete;
     });
   }
-
+  
   deleteTodo() {
     this.todoService.deleteTodo(this.todo.id).subscribe(() =>
-      this.todos.splice(this.todos.indexOf(this.todo), 1)
+    this.todos.splice(this.todos.indexOf(this.todo), 1)
     );
   }
 }

@@ -18,7 +18,7 @@ export class TodoService {
     return this.http.post<string>('/api/todo', todo, { headers: headers });
   }
 
-  completeTodo(todo) {
+  updateTodo(todo) {
     return this.http.put(`/api/todo/${todo.id}`, todo, { headers: headers, responseType: 'text' });
   }
 

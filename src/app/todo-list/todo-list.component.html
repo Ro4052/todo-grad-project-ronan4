@@ -1,7 +1,7 @@
 <ul class="list-group todo-list">
   <label *ngIf="todos.length===0"> No todos, create one below... </label>
   <ng-container *ngFor="let todo of todos">
-    <ng-container  *ngIf="showTodo(todo)">
+    <ng-container *ngIf="showTodo(todo)">
       <app-todo-item [(todos)]="todos" [todo]="todo"></app-todo-item>
     </ng-container>
   </ng-container>

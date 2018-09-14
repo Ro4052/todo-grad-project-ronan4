@@ -1,10 +1,13 @@
-<li class="list-group-item todo-item">
-  <div [class]="getTitleStyle(todo)">
-    {{ todo.title }}
-  </div>
-  <ng-container>
-    <button *ngIf="!todo.isComplete" class="btn btn-success" (click)="completeTodo()"> Complete </button>
-    <button *ngIf="todo.isComplete" class="btn btn-primary" (click)="completeTodo()"> Revert </button>
-    <button class="btn btn-danger delete-button" (click)="deleteTodo()"> Delete </button>
+<li [class]="'list-group-item' + (!showInput ? ' todo-item' : '')">
+  <ng-container *ngIf="!showInput">
+    <div [class]="this.todo.isComplete ? 'completed-todo' : ''" (click)="openInput()">
+      {{ todo.title }}
+    </div>
+    <ng-container>
+      <button *ngIf="!todo.isComplete" class="btn btn-success" (click)="completeTodo()"> Complete </button>
+      <button *ngIf="todo.isComplete" class="btn btn-primary" (click)="completeTodo()"> Revert </button>
+      <button class="btn btn-danger delete-button" (click)="deleteTodo()"> Delete </button>
+    </ng-container>
   </ng-container>
+  <app-title-input *ngIf="showInput" [title]="todo.title" (titleSubmit)="updateTitle($event)" actionText="Update"></app-title-input>
 </li>
