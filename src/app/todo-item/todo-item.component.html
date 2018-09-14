@@ -1,6 +1,6 @@
-<li [class]="'list-group-item' + (!showInput ? ' todo-item' : '')">
+<li [class]="'list-group-item'+(!showInput?' todo-item':'')">
   <ng-container *ngIf="!showInput">
-    <div id="todo-title" [class]="this.todo.isComplete ? 'completed-todo' : ''" (click)="openInput()">
+    <div [id]="'todo-title-'+todo.id" [class]="this.todo.isComplete?'completed-todo':''" (click)="openInput()">
       {{ todo.title }}
     </div>
     <ng-container>
@@ -11,6 +11,7 @@
   </ng-container>
   <app-title-input
     *ngIf="showInput"
+    [inputId]="'title-input-'+todo.id"
     [title]="todo.title"
     (titleSubmit)="updateTitle($event)"
     placeholder=""

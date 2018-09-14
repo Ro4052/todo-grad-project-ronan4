@@ -1,6 +1,6 @@
 <form class="input-group input-form" [formGroup]="formdata" (ngSubmit)="onSubmit(formdata.controls)">
-  <input [id]="'title-input-' + actionText" class="form-control" type="text" [placeholder]="placeholder" formControlName="newTitle">
+  <input [id]="inputId" class="form-control" type="text" [placeholder]="placeholder" formControlName="newTitle">
   <div class="input-group-append">
-    <button [id]="'title-input-' + actionText" class="btn btn-primary"  type="submit"> {{ actionText }} </button>
+    <button [id]="inputId" class="btn btn-primary"  type="submit"> {{ actionText }} </button>
   </div>
 </form>

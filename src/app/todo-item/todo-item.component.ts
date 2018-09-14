@@ -18,8 +18,8 @@ export class TodoItemComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   documentClick(event: MouseEvent) {
-    if ((event.srcElement.id !== 'title-input-Update') &&
-        (event.srcElement.id !== 'todo-title')) {
+    if ((event.srcElement.id !== `title-input-${this.todo.id}`) &&
+        (event.srcElement.id !== `todo-title-${this.todo.id}`)) {
       this.showInput = false;
     }
   }
