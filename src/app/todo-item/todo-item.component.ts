@@ -24,6 +24,13 @@ export class TodoItemComponent implements OnInit {
     }
   }
 
+  @HostListener('document:keydown', ['$event'])
+  escPress(event: KeyboardEvent) {
+    if (event.keyCode === 27) {
+      this.showInput = false;
+    }
+  }
+
   constructor(private todoService: TodoService) { }
 
   ngOnInit() { }
